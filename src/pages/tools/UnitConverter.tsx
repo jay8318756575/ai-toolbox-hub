@@ -1,8 +1,11 @@
 import { useState, useMemo } from 'react';
 import { Layout } from '@/components/layout/Layout';
+import { ToolPageSEO } from '@/components/seo/ToolPageSEO';
+import { ToolContentSection } from '@/components/seo/ToolContentSection';
+import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ArrowRightLeft, Calculator } from 'lucide-react';
 
@@ -50,6 +53,125 @@ const conversions: Record<ConversionCategory, Record<string, number>> = {
   },
 };
 
+const seoData = {
+  title: 'Unit Converter Online Free - Length, Weight, Temperature',
+  titleHi: 'यूनिट कन्वर्टर ऑनलाइन फ्री',
+  description: 'Free Unit Converter - Convert length, weight, temperature, area, volume instantly. Meters to feet, kg to pounds, Celsius to Fahrenheit. Accurate calculations.',
+  descriptionHi: 'मुफ्त यूनिट कन्वर्टर - Length, weight, temperature, area, volume instantly convert करें। Accurate calculations।',
+  keywords: [
+    'unit converter',
+    'unit converter online free',
+    'meter to feet converter',
+    'kg to pounds',
+    'celsius to fahrenheit',
+    'यूनिट कन्वर्टर',
+    'length converter',
+    'weight converter',
+    'temperature converter',
+    'area converter',
+    'volume converter',
+    'measurement converter',
+    'metric to imperial',
+  ],
+  canonicalUrl: '/tools/unit-converter',
+  toolName: 'Unit Converter',
+  category: 'Utility Tool',
+  faqs: [
+    {
+      question: 'Metric और Imperial system में क्या difference है?',
+      answer: 'Metric system (meters, kilograms, liters) internationally use होता है और 10 के multiples पर based है। Imperial system (feet, pounds, gallons) primarily USA में use होता है और historical units पर based है।',
+    },
+    {
+      question: '1 Meter में कितने Feet होते हैं?',
+      answer: '1 Meter = 3.28084 Feet। Reverse में, 1 Foot = 0.3048 Meters। हमारा converter automatically accurate conversion करता है।',
+    },
+    {
+      question: '1 Kilogram में कितने Pounds होते हैं?',
+      answer: '1 Kilogram = 2.20462 Pounds। यह conversion weight training, cooking recipes, और shipping calculations में commonly use होता है।',
+    },
+    {
+      question: 'Celsius को Fahrenheit में कैसे convert करें?',
+      answer: 'Formula है: °F = (°C × 9/5) + 32। उदाहरण: 25°C = (25 × 9/5) + 32 = 77°F। हमारा tool automatically calculate करता है।',
+    },
+    {
+      question: '1 Acre में कितने Square Feet होते हैं?',
+      answer: '1 Acre = 43,560 Square Feet या approximately 4,047 Square Meters। Land measurement में यह unit commonly use होता है।',
+    },
+    {
+      question: '1 Gallon में कितने Liters होते हैं?',
+      answer: 'US Gallon = 3.785 Liters। UK (Imperial) Gallon = 4.546 Liters। हमारा tool दोनों types support करता है।',
+    },
+  ],
+  howToSteps: [
+    'Category choose करें - Length, Weight, Temperature, Area, या Volume',
+    'From unit dropdown से source unit select करें',
+    'Value enter करें जो convert करना है',
+    'To unit dropdown से target unit select करें',
+    'Result automatically calculate होकर दिखेगा',
+    'Swap button से units interchange कर सकते हैं',
+  ],
+};
+
+const contentData = {
+  whatIs: {
+    title: 'Unit Converter क्या है?',
+    content: `Unit Converter एक free online tool है जो different measurement units के बीच instant conversion करता है। Length, Weight, Temperature, Area, और Volume - सभी common conversions एक जगह।
+
+    Daily life में हमें अक्सर units convert करने की जरूरत पड़ती है - cooking recipes में cups से ml, fitness में pounds से kg, या travel में miles से km। यह tool mathematically accurate conversions provide करता है बिना किसी complex formula याद करे।
+
+    Real-time calculation के साथ, जैसे ही आप value enter करते हैं result instantly दिखता है। Quick reference tables भी available हैं common conversions के लिए।`,
+  },
+  whyUse: {
+    title: 'हमारा Unit Converter क्यों use करें?',
+    points: [
+      'Multiple Categories - Length, Weight, Temperature, Area, Volume सब एक tool में',
+      'Instant Calculation - Real-time results, no button click needed',
+      'Accurate Results - Mathematically precise conversions',
+      'Swap Function - One-click में units interchange करें',
+      'Quick Reference - Common conversions readily available',
+      'Mobile Friendly - Phone पर भी perfectly काम करता है',
+      'No Registration - Instantly use करें, forever free',
+      'Clean Interface - Simple और easy to use design',
+    ],
+  },
+  howToUse: {
+    title: 'Units Convert कैसे करें',
+    steps: [
+      'सबसे पहले category tabs से appropriate category select करें: Length (distance), Weight (mass), Temperature, Area (surface), या Volume (capacity)',
+      'From section में value input करें जो आप convert करना चाहते हैं। Numbers और decimals दोनों supported हैं।',
+      'From dropdown से source unit select करें - वह unit जिसमें आपकी value है',
+      'To dropdown से target unit select करें - वह unit जिसमें convert करना है',
+      'Result automatically calculate होकर To field में दिखेगा। No button click needed!',
+      'Swap button (↕️ icon) से quickly From और To units interchange कर सकते हैं',
+      'Formula display देखें जो shows करता है कि exactly क्या conversion हुआ है',
+      'Quick Reference section में common conversions देखें additional information के लिए',
+    ],
+  },
+  useCases: {
+    title: 'Use Cases & Examples',
+    cases: [
+      'Cooking - Cups से ml, ounces से grams convert करें recipes के लिए',
+      'Fitness - Pounds से kg convert करें weight tracking के लिए',
+      'Travel - Miles से km, gallons से liters convert करें',
+      'Construction - Feet से meters, square feet से square meters',
+      'Science - Temperature conversions (Celsius, Fahrenheit, Kelvin)',
+      'Shopping - Product weights और volumes compare करें',
+      'Real Estate - Acres से square feet/meters convert करें land measurements के लिए',
+      'Shipping - Package dimensions और weights convert करें international shipping के लिए',
+      'Education - Students के लिए unit conversion practice',
+      'Healthcare - Medical measurements convert करें (doses, body weight)',
+    ],
+  },
+  faqs: seoData.faqs,
+  relatedTools: [
+    { title: 'JSON Formatter', href: '/tools/json-formatter' },
+    { title: 'Password Generator', href: '/tools/password-generator' },
+    { title: 'QR Code Generator', href: '/tools/qr-generator' },
+    { title: 'Meta Tag Generator', href: '/tools/meta-generator' },
+    { title: 'Image Converter', href: '/tools/image-converter' },
+  ],
+};
+
 export default function UnitConverter() {
   const [category, setCategory] = useState<ConversionCategory>('length');
   const [fromUnit, setFromUnit] = useState('Meter (m)');
@@ -63,7 +185,6 @@ export default function UnitConverter() {
     if (isNaN(value)) return '';
 
     if (category === 'temperature') {
-      // Special handling for temperature
       let celsius: number;
       
       if (fromUnit.includes('Celsius')) {
@@ -83,7 +204,6 @@ export default function UnitConverter() {
       }
     }
 
-    // Standard conversion
     const fromFactor = conversions[category][fromUnit];
     const toFactor = conversions[category][toUnit];
     const baseValue = value / fromFactor;
@@ -110,21 +230,28 @@ export default function UnitConverter() {
 
   return (
     <Layout>
+      <ToolPageSEO {...seoData} />
+      
       <div className="container py-8 md:py-12">
         <div className="max-w-2xl mx-auto">
+          <Breadcrumbs items={[
+            { label: 'Tools', href: '/tools' },
+            { label: 'Unit Converter' },
+          ]} />
+
           {/* Header */}
-          <div className="text-center mb-8">
+          <header className="text-center mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-utility/10 text-utility text-sm mb-4">
               <Calculator className="h-4 w-4" />
               <span>Utility Tool</span>
             </div>
             <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">
-              Unit Converter
+              Unit Converter Online Free
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               Length, Weight, Temperature, Area, Volume - Instant conversion
             </p>
-          </div>
+          </header>
 
           {/* Category Tabs */}
           <Tabs value={category} onValueChange={(v) => handleCategoryChange(v as ConversionCategory)} className="mb-6">
@@ -257,6 +384,9 @@ export default function UnitConverter() {
               )}
             </div>
           </Card>
+
+          {/* SEO Content Sections */}
+          <ToolContentSection {...contentData} />
         </div>
       </div>
     </Layout>
