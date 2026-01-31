@@ -1,14 +1,36 @@
+# AI Tools Hub - Robots.txt
+# Website: https://aitoolshub.com
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Google Bot
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
+# Bing Bot
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
+# Social Media Bots
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+# Disallow admin/private paths
+Disallow: /api/
+Disallow: /_/
+
+# Sitemap location
+Sitemap: https://aitoolshub.com/sitemap.xml
