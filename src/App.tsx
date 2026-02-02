@@ -11,6 +11,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
+import Auth from "./pages/Auth";
 
 // Tools
 import QRGenerator from "./pages/tools/QRGenerator";
@@ -19,6 +20,14 @@ import ImageConverter from "./pages/tools/ImageConverter";
 import MetaGenerator from "./pages/tools/MetaGenerator";
 import JSONFormatter from "./pages/tools/JSONFormatter";
 import UnitConverter from "./pages/tools/UnitConverter";
+
+// AI Tools
+import AIContentWriter from "./pages/tools/AIContentWriter";
+import AIParaphraser from "./pages/tools/AIParaphraser";
+import AIChatbot from "./pages/tools/AIChatbot";
+import AISummarizer from "./pages/tools/AISummarizer";
+import AITranslator from "./pages/tools/AITranslator";
+import GrammarChecker from "./pages/tools/GrammarChecker";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +45,7 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/auth" element={<Auth />} />
           
           {/* Working Tools */}
           <Route path="/tools/qr-generator" element={<QRGenerator />} />
@@ -44,6 +54,14 @@ const App = () => (
           <Route path="/tools/meta-generator" element={<MetaGenerator />} />
           <Route path="/tools/json-formatter" element={<JSONFormatter />} />
           <Route path="/tools/unit-converter" element={<UnitConverter />} />
+          
+          {/* AI Tools */}
+          <Route path="/tools/ai-content-writer" element={<AIContentWriter />} />
+          <Route path="/tools/ai-paraphraser" element={<AIParaphraser />} />
+          <Route path="/tools/ai-chatbot" element={<AIChatbot />} />
+          <Route path="/tools/ai-summarizer" element={<AISummarizer />} />
+          <Route path="/tools/ai-translator" element={<AITranslator />} />
+          <Route path="/tools/grammar-checker" element={<GrammarChecker />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
