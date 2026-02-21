@@ -45,11 +45,11 @@ const allTools = [
   { id: 'backlink-checker', title: 'Backlink Checker', titleHi: 'बैकलिंक चेकर', icon: Globe, category: 'SEO', href: '/tools/backlink-checker', isAI: false },
   
   // AI Writing Tools
-  { id: 'ai-writer', title: 'AI Content Writer', titleHi: 'AI कंटेंट राइटर', icon: FileText, category: 'AI Writing', href: '/tools/ai-writer', isAI: true },
-  { id: 'paraphraser', title: 'Paraphrasing Tool', titleHi: 'पैराफ्रेज़िंग टूल', icon: Type, category: 'AI Writing', href: '/tools/paraphraser', isAI: true },
+  { id: 'ai-writer', title: 'AI Content Writer', titleHi: 'AI कंटेंट राइटर', icon: FileText, category: 'AI Writing', href: '/tools/ai-content-writer', isAI: true },
+  { id: 'paraphraser', title: 'Paraphrasing Tool', titleHi: 'पैराफ्रेज़िंग टूल', icon: Type, category: 'AI Writing', href: '/tools/ai-paraphraser', isAI: true },
   { id: 'grammar-checker', title: 'Grammar Checker', titleHi: 'ग्रामर चेकर', icon: CheckCircle, category: 'AI Writing', href: '/tools/grammar-checker', isAI: true },
-  { id: 'translator', title: 'AI Translator', titleHi: 'AI ट्रांसलेटर', icon: Languages, category: 'AI Writing', href: '/tools/translator', isAI: true },
-  { id: 'summarizer', title: 'Text Summarizer', titleHi: 'टेक्स्ट समराइज़र', icon: FileSearch, category: 'AI Writing', href: '/tools/summarizer', isAI: true },
+  { id: 'translator', title: 'AI Translator', titleHi: 'AI ट्रांसलेटर', icon: Languages, category: 'AI Writing', href: '/tools/ai-translator', isAI: true },
+  { id: 'summarizer', title: 'Text Summarizer', titleHi: 'टेक्स्ट समराइज़र', icon: FileSearch, category: 'AI Writing', href: '/tools/ai-summarizer', isAI: true },
   
   // Design Tools
   { id: 'house-planner', title: 'House Plan AI', titleHi: 'घर का नक्शा AI', icon: Home, category: 'Design', href: '/tools/house-planner', isAI: true },

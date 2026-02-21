@@ -4,7 +4,7 @@ type Message = { role: "user" | "assistant"; content: string };
 
 interface StreamChatOptions {
   messages: Message[];
-  type: "content-writer" | "paraphraser" | "summarizer" | "grammar-checker" | "translator" | "chatbot";
+  type: "content-writer" | "paraphraser" | "summarizer" | "grammar-checker" | "translator" | "chatbot" | "keyword-research" | "page-speed" | "backlink-checker" | "house-planner";
   options?: {
     tone?: string;
     language?: string;
