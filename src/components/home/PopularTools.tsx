@@ -52,7 +52,7 @@ const popularTools = [
     titleHi: 'AI कंटेंट राइटर',
     description: 'Generate blog posts, articles, social media content',
     icon: FileText,
-    href: '/tools/ai-writer',
+    href: '/tools/ai-content-writer',
     category: 'AI Writing',
     isNew: true,
     isAI: true,

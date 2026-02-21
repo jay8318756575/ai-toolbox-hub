@@ -20,6 +20,9 @@ import ImageConverter from "./pages/tools/ImageConverter";
 import MetaGenerator from "./pages/tools/MetaGenerator";
 import JSONFormatter from "./pages/tools/JSONFormatter";
 import UnitConverter from "./pages/tools/UnitConverter";
+import HashGenerator from "./pages/tools/HashGenerator";
+import URLEncoder from "./pages/tools/URLEncoder";
+import ImageCompressor from "./pages/tools/ImageCompressor";
 
 // AI Tools
 import AIContentWriter from "./pages/tools/AIContentWriter";
@@ -28,6 +31,10 @@ import AIChatbot from "./pages/tools/AIChatbot";
 import AISummarizer from "./pages/tools/AISummarizer";
 import AITranslator from "./pages/tools/AITranslator";
 import GrammarChecker from "./pages/tools/GrammarChecker";
+import KeywordResearch from "./pages/tools/KeywordResearch";
+import PageSpeedAnalyzer from "./pages/tools/PageSpeedAnalyzer";
+import BacklinkChecker from "./pages/tools/BacklinkChecker";
+import HousePlanner from "./pages/tools/HousePlanner";
 
 const queryClient = new QueryClient();
 
@@ -47,13 +54,16 @@ const App = () => (
           <Route path="/faq" element={<FAQ />} />
           <Route path="/auth" element={<Auth />} />
           
-          {/* Working Tools */}
+          {/* Utility Tools */}
           <Route path="/tools/qr-generator" element={<QRGenerator />} />
           <Route path="/tools/password-generator" element={<PasswordGenerator />} />
           <Route path="/tools/image-converter" element={<ImageConverter />} />
           <Route path="/tools/meta-generator" element={<MetaGenerator />} />
           <Route path="/tools/json-formatter" element={<JSONFormatter />} />
           <Route path="/tools/unit-converter" element={<UnitConverter />} />
+          <Route path="/tools/hash-generator" element={<HashGenerator />} />
+          <Route path="/tools/url-encoder" element={<URLEncoder />} />
+          <Route path="/tools/image-compressor" element={<ImageCompressor />} />
           
           {/* AI Tools */}
           <Route path="/tools/ai-content-writer" element={<AIContentWriter />} />
@@ -62,6 +72,10 @@ const App = () => (
           <Route path="/tools/ai-summarizer" element={<AISummarizer />} />
           <Route path="/tools/ai-translator" element={<AITranslator />} />
           <Route path="/tools/grammar-checker" element={<GrammarChecker />} />
+          <Route path="/tools/keyword-research" element={<KeywordResearch />} />
+          <Route path="/tools/page-speed" element={<PageSpeedAnalyzer />} />
+          <Route path="/tools/backlink-checker" element={<BacklinkChecker />} />
+          <Route path="/tools/house-planner" element={<HousePlanner />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

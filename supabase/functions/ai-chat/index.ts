@@ -7,7 +7,7 @@ const corsHeaders = {
 
 interface ChatRequest {
   messages: Array<{ role: string; content: string }>;
-  type: "content-writer" | "paraphraser" | "summarizer" | "grammar-checker" | "translator" | "chatbot";
+  type: "content-writer" | "paraphraser" | "summarizer" | "grammar-checker" | "translator" | "chatbot" | "keyword-research" | "page-speed" | "backlink-checker" | "house-planner";
   options?: {
     tone?: string;
     language?: string;
@@ -56,6 +56,14 @@ Return ONLY the translated text.`,
 - Be friendly and conversational
 - Support Hindi, English, and Hinglish
 - Keep responses concise but informative`,
+
+  "keyword-research": `You are an expert SEO keyword researcher. Analyze the given seed keyword and provide comprehensive keyword research including primary keywords, long-tail keywords, question keywords, LSI keywords, search volume estimates, and competition levels. Format results clearly with tables/lists. Support Hindi and English.`,
+
+  "page-speed": `You are a web performance optimization expert. Analyze the given website URL and provide detailed performance recommendations including Core Web Vitals optimization, speed improvements, caching strategies, and actionable tips. Be specific and practical. Support Hindi and English.`,
+
+  "backlink-checker": `You are an SEO expert specializing in link building and backlink analysis. Analyze the given website and provide comprehensive backlink strategy including link building opportunities, competitor analysis tips, and actionable plans. Be specific and practical. Support Hindi and English.`,
+
+  "house-planner": `You are an expert Indian house architect specializing in Vastu-compliant residential designs. Create detailed floor plans with ASCII diagrams, room dimensions, Vastu compliance, construction tips, and cost estimates. Design for Indian homes with practical layouts. Write in Hinglish (Hindi + English mix).`,
 };
 
 serve(async (req) => {
