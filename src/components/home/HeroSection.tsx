@@ -43,7 +43,7 @@ export function HeroSection() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full px-8 h-12 text-base">
-              <Link to="/tools/ai-writer">
+              <Link to="/tools/ai-content-writer">
                 Try AI Writer
               </Link>
             </Button>
