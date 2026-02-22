@@ -4,11 +4,12 @@
 # Allow all crawlers
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
 # Google Bot
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0
 
 # Bing Bot
 User-agent: Bingbot
@@ -31,6 +32,7 @@ Allow: /
 # Disallow admin/private paths
 Disallow: /api/
 Disallow: /_/
+Disallow: /auth
 
 # Sitemap location
 Sitemap: https://aitoolshub.com/sitemap.xml
