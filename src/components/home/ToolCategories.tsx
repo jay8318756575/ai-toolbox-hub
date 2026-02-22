@@ -17,7 +17,7 @@ const categories = [
     description: 'Keyword Research, Meta Tags, Backlink Checker और more',
     icon: Search,
     color: 'category-seo',
-    href: '/tools/seo',
+    href: '/tools',
     toolCount: 8,
   },
   {
@@ -27,7 +27,7 @@ const categories = [
     description: 'Image, PDF, Video conversion - Fast & Free',
     icon: ImageIcon,
     color: 'category-converter',
-    href: '/tools/converters',
+    href: '/tools',
     toolCount: 6,
   },
   {
@@ -37,7 +37,7 @@ const categories = [
     description: 'House Plan Generator, Logo Maker और Graphics',
     icon: Palette,
     color: 'category-design',
-    href: '/tools/design',
+    href: '/tools',
     toolCount: 4,
   },
   {
@@ -47,7 +47,7 @@ const categories = [
     description: 'Content Writer, Paraphraser, Grammar Check',
     icon: PenTool,
     color: 'category-writing',
-    href: '/tools/writing',
+    href: '/tools',
     toolCount: 6,
   },
   {
@@ -57,7 +57,7 @@ const categories = [
     description: 'QR Code, Password Generator, Calculators',
     icon: Settings,
     color: 'category-utility',
-    href: '/tools/utility',
+    href: '/tools',
     toolCount: 8,
   },
 ];
