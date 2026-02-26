@@ -15,7 +15,42 @@ interface StreamChatOptions {
   onError: (error: string) => void;
 }
 
-const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`;
+const PROJECT_REF = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+const CHAT_URL = import.meta.env.VITE_SUPABASE_URL
+  ? `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`
+  : PROJECT_REF
+    ? `https://${PROJECT_REF}.supabase.co/functions/v1/ai-chat`
+    : "";
+
+const fetchWithRetry = async (body: string) => {
+  const attempts = 2;
+
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+
+    try {
+      const response = await fetch(CHAT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body,
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeout);
+      return response;
+    } catch (error) {
+      clearTimeout(timeout);
+      if (attempt === attempts) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+    }
+  }
+
+  throw new Error("Failed to connect to AI service");
+};
 
 export async function streamAIChat({
   messages,
@@ -26,14 +61,12 @@ export async function streamAIChat({
   onError,
 }: StreamChatOptions): Promise<void> {
   try {
-    const response = await fetch(CHAT_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-      },
-      body: JSON.stringify({ messages, type, options }),
-    });
+    if (!CHAT_URL) {
+      onError("AI endpoint is not configured. Please refresh and try again.");
+      return;
+    }
+
+    const response = await fetchWithRetry(JSON.stringify({ messages, type, options }));
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
