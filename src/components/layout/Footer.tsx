@@ -3,11 +3,11 @@ import { Sparkles, Mail, MapPin } from 'lucide-react';
 
 const footerLinks = {
   tools: [
-    { href: '/tools/seo', label: 'SEO Tools' },
-    { href: '/tools/converters', label: 'Converters' },
-    { href: '/tools/design', label: 'Design Tools' },
-    { href: '/tools/writing', label: 'AI Writing' },
-    { href: '/tools/utility', label: 'Utility Tools' },
+    { href: '/tools/keyword-research', label: 'SEO Tools' },
+    { href: '/tools/image-converter', label: 'Converters' },
+    { href: '/tools/house-planner', label: 'Design Tools' },
+    { href: '/tools/ai-content-writer', label: 'AI Writing' },
+    { href: '/tools/qr-generator', label: 'Utility Tools' },
   ],
   company: [
     { href: '/about', label: 'About Us' },
