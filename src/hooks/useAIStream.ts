@@ -16,7 +16,7 @@ interface StreamChatOptions {
 }
 
 const PROJECT_REF = import.meta.env.VITE_SUPABASE_PROJECT_ID;
-const API_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+const API_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? "";
 const CHAT_URL = import.meta.env.VITE_SUPABASE_URL
   ? `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`
   : PROJECT_REF
