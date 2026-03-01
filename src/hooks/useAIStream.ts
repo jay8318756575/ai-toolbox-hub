@@ -77,7 +77,7 @@ export async function streamAIChat({
   onError,
 }: StreamChatOptions): Promise<void> {
   try {
-    if (!CHAT_URL) {
+    if (!CHAT_URL || !API_KEY) {
       onError("AI endpoint is not configured. Please refresh and try again.");
       return;
     }
