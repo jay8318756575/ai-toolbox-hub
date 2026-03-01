@@ -164,7 +164,14 @@ export async function streamAIChat({
     onDone();
   } catch (error) {
     console.error("Stream error:", error);
-    onError(error instanceof Error ? error.message : "Failed to connect to AI service");
+
+    const message = error instanceof Error ? error.message : "Failed to connect to AI service";
+    if (/aborted|timeout|network/i.test(message)) {
+      onError("Network slow hai ya server busy hai. कृपया 10-15 सेकंड बाद फिर try करें।");
+      return;
+    }
+
+    onError(message);
   }
 }
 
