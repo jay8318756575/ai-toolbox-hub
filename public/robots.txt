@@ -1,5 +1,5 @@
-# AI Tools Hub - Robots.txt
-# Website: https://aitoolshub.com
+# SmartToolsHub - Robots.txt
+# Website: https://smarttoolshub.com
 
 # Allow all crawlers
 User-agent: *
@@ -35,4 +35,4 @@ Disallow: /_/
 Disallow: /auth
 
 # Sitemap location
-Sitemap: https://aitoolshub.com/sitemap.xml
+Sitemap: https://smarttoolshub.com/sitemap.xml
