@@ -39,9 +39,7 @@ const contentData = {
     { title: 'Unicode Support', description: 'Works perfectly with Hindi, emoji, Chinese, Arabic, and all Unicode text.' },
     { title: '100% Private', description: 'All processing happens locally in your browser. No data leaves your device.' },
   ],
-  useCasesTitle: 'Use Cases',
-  useCases: ['Creating backwards/mirror text for social media', 'Reversing strings in programming tasks', 'Decoding reversed messages', 'Text manipulation for data processing', 'Fun and creative writing exercises'],
-  tipsTitle: 'Tips for Using Text Reverser',
+  useCasesList: ['Creating backwards/mirror text for social media', 'Reversing strings in programming tasks', 'Decoding reversed messages', 'Text manipulation for data processing', 'Fun and creative writing exercises'],
   tips: ['Use "Reverse by Words" to flip sentence word order while keeping words readable', 'Use "Reverse by Lines" for reversing multi-line text like lists or code', 'Combine with our Case Converter tool for more text transformations'],
 };
 
